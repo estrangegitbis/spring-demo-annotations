@@ -1,9 +1,13 @@
 package com.luv2code.springdemo;
 
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,6 +27,19 @@ public class TennisCoach implements Coach {
     public TennisCoach() {
         System.out.println(">> TennisCoach: inside default constructor");
     }
+    
+    // define my init mehod    
+    @PostConstruct
+    private void postConstructMethod() {
+        System.out.println(">> TennisCoach: inside of postConstructMethod");
+    }
+    
+    // define my destroy method
+    @PreDestroy
+    private void preDetroyMethod() {
+        System.out.println(">> TennisCoach: inside of preDetroyMethod");
+    }    
+    
     
     // define a setter method
 //    @Autowired
